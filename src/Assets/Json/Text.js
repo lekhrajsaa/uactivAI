@@ -9,43 +9,43 @@ import SStart from '../../Assets/Sound/squats/SQUAT_start.mp3'
 
 const data = [
   {
-    text: 'High Knees',
+    text: "High Knees",
     // image: first,
     description: [
-      'Make sure your full body is in the camera frame',
-      'Face the camera',
-      'Start high knees'
+      "Make sure your full body is in the camera frame",
+      "Face the camera",
+      "Start high knees",
     ],
     // audio: new Audio(HKintro),
     aud2: new Audio(HKSCM),
     aud2len: 19600,
-    reps: 20
+    reps: 20,
   },
   {
-    text: 'Jumping Jacks',
+    text: "Jumping Jacks",
     // image: second,
     description: [
-      'Make sure your full body is in the camera frame',
-      'Face the camera',
-      'Start jumping jacks'
+      "Make sure your full body is in the camera frame",
+      "Face the camera",
+      "Start jumping jacks",
     ],
     // audio: new Audio(JJIntro),
     aud2: new Audio(JJIcnt),
     aud2len: 14000,
-    reps: 25
+    reps: 25,
   },
   {
-    text: 'Squats',
-    // image: third,
+    text: "Squats",
+    //image: third,
     description: [
-      'Make sure your full body is in the camera frame',
-      ' Turn to your left or right, so your profile is visible to the camera',
-      'Start squatting',
+      "Make sure your full body is in the camera frame",
+      " Turn to your left or right, so your profile is visible to the camera",
+      "Start squatting",
     ],
-    // audio: new Audio(SIntro),
+    //audio: new Audio(SIntro),
     aud2: new Audio(SStart),
-    aud2len: 54000,
-    reps: 20
+    aud2len: 25000,
+    reps: 20,
   },
 ];
 
