@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import * as posedetection from '@tensorflow-models/pose-detection';
 import '@tensorflow/tfjs-core';
@@ -6,6 +6,7 @@ import '@tensorflow/tfjs-core';
 import '@tensorflow/tfjs-backend-webgl';
 
 import { Camera } from './utils/camera';
+import data from "./Assets/Json/Text";
 
 import './App.css';
 
@@ -13,9 +14,12 @@ import { detectorConfig, model } from './constants/model';
 
 export const sendDataToReactNativeApp = async (txt) => {
   window.ReactNativeWebView.postMessage(JSON.stringify(txt));
+  //window.ReactNativeWebView.postMessage(JSON.stringify(mess));
 }
 
-export default () => {
+export default function App () {
+
+  const [mess, setMess] = useState();
   const startModel = async (exercise) => {
     let camera = null
     try {
@@ -70,19 +74,21 @@ export default () => {
       console.log(error, 2)
       alert(error)
     }
+    setTimeout(() => {
+      data[exercise].aud2.play();
+    }, 600);
   }
   useEffect(() => {
-    window.addEventListener("message", message => {
-      let val = message.data
-      if (val.type === 'exercise') {
-        console.log('exercise')
-        startModel(val.data.index)
-      }
-      else {
-        console.log(val.type, 3)
-        alert(val.type)
-      }
-    });
+   window.addEventListener("message", (message) => {
+     let val = message.data;
+     if (val.type === "exercise") {
+       console.log("exercise");
+       startModel(val.data.id);
+     } else {
+       console.log(val.type, 3);
+       alert(val.type);
+     }
+   });
   }, [])
   return (
     <div className="middle">

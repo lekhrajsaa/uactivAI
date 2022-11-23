@@ -74,7 +74,7 @@ export class Camera {
             camera.ctx.translate(camera.video.videoWidth, 0);
             camera.ctx.scale(-1, 1);
 
-            // camera.playing = data[exercise].audio
+            //camera.playing = data[exercise].audio
             // camera.playing.play()
             // new Audio(Beep).play()
 
@@ -296,6 +296,7 @@ export class Camera {
             let speed = ((1000 * count) / time_taken).toFixed(2)
             // this.setSpeed(speed)
             sendDataToReactNativeApp({
+                //this will send data to react native uactiv app
                 type: 'reps',
                 data: {
                     rep: count,
